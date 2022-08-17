@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Sobre";
+const description = "Sobre mim";
+const permalink = `${Astro.site?.href}sobre`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  current="sobre"
+>
+  <div class="container">
+    <h1>Olá, sou Thales Menezes ...</h1>
+    <figure class="about-image">
+      <img
+        src="/assets/about-me.jpeg"
+        alt="Homem pardo de óculos, barba, vestido com um blazer e ajustando suas abotoaduras"
+        width="330"
+      />
+      <figcaption>
+        CEO e CTO da Thales Menezes Tecnologia - TMTecnologia
+      </figcaption>
+    </figure>
+    <p>
+      ... quase cientista da computação, empresário, pós junior, gerente e
+      desenvolvedor; trabalho com desenvolvimento web profissionalmente desde
+      2019, tenho minha própria empresa de desenvolvimento de software desde
+      2021, e estou concluindo o curso de Bacharelado em Ciência da Computação.
+    </p>
+    <p>
+      Minha pesquisa de conclusão de curso gira em torno de metodologias de
+      ensino e ambientes virtuais de aprendizagem; busco continuar, com as
+      ferramentas que a faculdade me deu, codificando sonhos e desenvolvendo
+      pessoas através da educação.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-image {
+    float: right;
+    margin: -3em -7em 2em 2em;
+    max-width: 300px;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 1020px) {
+    .about-image {
+      float: none;
+      margin: 0 auto 2em;
+    }
+  }
+</style>
