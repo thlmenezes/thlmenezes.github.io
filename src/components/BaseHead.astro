@@ -19,38 +19,37 @@ function filterLongContent(text: string) {
   if (text.length > 49) return text.substring(0, 46) + "...";
   return text;
 }
-const socialUrl =
-  generateSocialImage(
-    {
-      backgroundColor: "#28262c",
-      images: [
-        { url: "public/assets/logo.webp", attributes: { top: 375, left: 900 } },
-      ],
-      texts: [
-        {
-          content: filterLongContent(title),
-          attributes: {
-            x: "55",
-            y: "105",
-            "font-size": "70px",
-            fill: "#fefffe",
-            "font-family": "Merriweather, serif",
-          },
+const socialUrl = generateSocialImage(
+  {
+    backgroundColor: "#28262c",
+    images: [
+      { url: "public/assets/logo.webp", attributes: { top: 375, left: 900 } },
+    ],
+    texts: [
+      {
+        content: filterLongContent(title),
+        attributes: {
+          x: "55",
+          y: "105",
+          "font-size": "70px",
+          fill: "#fefffe",
+          "font-family": "Merriweather, serif",
         },
-        {
-          content: filterLongContent(description),
-          attributes: {
-            x: "50",
-            y: "325",
-            "font-size": "40px",
-            fill: "#fefffe",
-            "font-family": "Merriweather, serif",
-          },
+      },
+      {
+        content: filterLongContent(description),
+        attributes: {
+          x: "50",
+          y: "325",
+          "font-size": "40px",
+          fill: "#fefffe",
+          "font-family": "Merriweather, serif",
         },
-      ],
-    },
-    { urlPath: Astro.site?.href ?? "/" }
-  )?.path ?? Astro.site?.href + "assets/social.png";
+      },
+    ],
+  },
+  { urlPath: Astro.site?.href ?? "/" }
+).path;
 ---
 
 <!-- Global Metadata -->
