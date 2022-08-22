@@ -26,7 +26,7 @@ Mas rapidamente essa postura se mostrou ineficiente, os principais problemas for
 
 O fluxo de trabalho podia ser descrito nos passos:
 
-```txt
+```markdown
 1. Gerente delega tarefa a desenvolvedor;
 2. Desenvolvedor escreve código;
 3. Desenvolvedor faz commit das suas modificações;
