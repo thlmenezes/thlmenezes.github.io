@@ -1,6 +1,7 @@
 ---
-import '../styles/fonts.css'
-import '../styles/global.css'
+import { SocialImage } from "astro-social-images";
+import "../styles/fonts.css";
+import "../styles/global.css";
 
 export interface Props {
   title: string;
@@ -9,14 +10,13 @@ export interface Props {
 }
 
 const { title, description, permalink } = Astro.props;
-const socialUrl = Astro.site.href + 'assets/social.png'
+// const socialUrl = Astro.site?.href + "assets/social.png";
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -28,22 +28,55 @@ const socialUrl = Astro.site.href + 'assets/social.png'
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={socialUrl} />
+<!-- <meta property="og:image" content={socialUrl} /> -->
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
+<!-- <meta property="twitter:card" content="summary_large_image" /> -->
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={socialUrl} />
+<!-- <meta property="twitter:image" content={socialUrl} /> -->
+
+<SocialImage
+  backgroundColor="#28262c"
+  images={[
+    { url: "public/assets/logo.webp", attributes: { top: 375, left: 900 } },
+  ]}
+  globalOptions={{ urlPath: Astro.site?.href ?? "/" }}
+  texts={[
+    {
+      content: title,
+      attributes: {
+        x: "55",
+        y: "105",
+        "font-size": "70px",
+        fill: "#fefffe",
+        "font-family": "Merriweather, serif",
+      },
+    },
+    {
+      content: description,
+      attributes: {
+        x: "50",
+        y: "325",
+        "font-size": "40px",
+        fill: "#fefffe",
+        "font-family": "Merriweather, serif",
+      },
+    },
+  ]}
+/>
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script>
   const root = document.documentElement;
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark' || (!theme) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    root.classList.add('theme-dark');
+  const theme = localStorage.getItem("theme");
+  if (
+    theme === "dark" ||
+    (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    root.classList.add("theme-dark");
   } else {
-    root.classList.remove('theme-dark');
+    root.classList.remove("theme-dark");
   }
 </script>
