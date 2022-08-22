@@ -48,7 +48,7 @@ const socialUrl = generateSocialImage(
       },
     ],
   },
-  { urlPath: Astro.site?.href ?? "/" }
+  { outputDir: "public/assets/socials", urlPath: Astro.site?.href ?? "/" }
 ).path;
 ---
 
