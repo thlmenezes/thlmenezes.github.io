@@ -233,7 +233,7 @@ Diferenças sutis, mas tão significativas que trouxeram um aumento de produtivi
 
 ## Mas porque creche?
 
-O nome veio da ideia de criar um ambiente para que os recém-introduzidos ao mundo da programação profissional pudessem se desenvolver de forma segura, uma ambiente que incentivasse experimentação; e, quando fossem ganhando mais experiência, se tornasse uma rede de segurança, garantindo que o padrão do produto sendo construído não quebraria a barreira de qualidade mínima esperada.
+O nome veio da ideia de criar um ambiente para que os recém-introduzidos ao mundo da programação profissional pudessem se desenvolver de forma segura, um ambiente que incentivasse experimentação; e, quando fossem ganhando mais experiência, se tornasse uma rede de segurança, garantindo que o padrão do produto sendo construído não quebraria a barreira de qualidade mínima esperada.
 
 > Acha que faz sentido, dado o que viu até agora?
 
