@@ -45,7 +45,7 @@ const { title, description, permalink } = Astro.props;
   globalOptions={{ urlPath: Astro.site?.href ?? "/" }}
   texts={[
     {
-      content: title,
+      content: title ?? "EMPTY",
       attributes: {
         x: "55",
         y: "105",
@@ -55,7 +55,7 @@ const { title, description, permalink } = Astro.props;
       },
     },
     {
-      content: description,
+      content: description ?? "EMPTY",
       attributes: {
         x: "50",
         y: "325",
