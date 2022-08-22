@@ -1,5 +1,5 @@
 ---
-import { SocialImage } from "astro-social-images";
+import { generateSocialImage } from "astro-social-images";
 import "../styles/fonts.css";
 import "../styles/global.css";
 
@@ -10,7 +10,47 @@ export interface Props {
 }
 
 const { title, description, permalink } = Astro.props;
-// const socialUrl = Astro.site?.href + "assets/social.png";
+function filterLongContent(text: string) {
+  /* SVG errors on text-wrap
+   * read more @ https://github.com/Princesseuh/astro-social-images/issues/1
+   */
+
+  if (!text) return "EMPTY";
+  if (text.length > 49) return text.substring(0, 46) + "...";
+  return text;
+}
+const socialUrl =
+  generateSocialImage(
+    {
+      backgroundColor: "#28262c",
+      images: [
+        { url: "public/assets/logo.webp", attributes: { top: 375, left: 900 } },
+      ],
+      texts: [
+        {
+          content: filterLongContent(title),
+          attributes: {
+            x: "55",
+            y: "105",
+            "font-size": "70px",
+            fill: "#fefffe",
+            "font-family": "Merriweather, serif",
+          },
+        },
+        {
+          content: filterLongContent(description),
+          attributes: {
+            x: "50",
+            y: "325",
+            "font-size": "40px",
+            fill: "#fefffe",
+            "font-family": "Merriweather, serif",
+          },
+        },
+      ],
+    },
+    { urlPath: Astro.site?.href ?? "/" }
+  )?.path ?? Astro.site?.href + "assets/social.png";
 ---
 
 <!-- Global Metadata -->
@@ -28,44 +68,14 @@ const { title, description, permalink } = Astro.props;
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<!-- <meta property="og:image" content={socialUrl} /> -->
+<meta property="og:image" content={socialUrl} />
 
 <!-- Twitter -->
-<!-- <meta property="twitter:card" content="summary_large_image" /> -->
+<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<!-- <meta property="twitter:image" content={socialUrl} /> -->
-
-<SocialImage
-  backgroundColor="#28262c"
-  images={[
-    { url: "public/assets/logo.webp", attributes: { top: 375, left: 900 } },
-  ]}
-  globalOptions={{ urlPath: Astro.site?.href ?? "/" }}
-  texts={[
-    {
-      content: title ?? "EMPTY",
-      attributes: {
-        x: "55",
-        y: "105",
-        "font-size": "70px",
-        fill: "#fefffe",
-        "font-family": "Merriweather, serif",
-      },
-    },
-    {
-      content: description ?? "EMPTY",
-      attributes: {
-        x: "50",
-        y: "325",
-        "font-size": "40px",
-        fill: "#fefffe",
-        "font-family": "Merriweather, serif",
-      },
-    },
-  ]}
-/>
+<meta property="twitter:image" content={socialUrl} />
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script>
