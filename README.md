@@ -4,6 +4,10 @@ Esse projeto hospeda o código referente ao meu [blog](https://thlmenezes.github
 
 ## FAQ
 
+### Como funciona o modo {escuro, claro}?
+
+Configure o seu navegador/dispositivo e o site responderá de acordo.
+
 ### Novos Posts
 
 ```plaintext
