@@ -1,6 +1,6 @@
 # Blog Pessoal
 
-Esse projeto hospeda o código referente ao meu [blog](https://thlmenezes.github.io), utilizando [Astro](https://astro.build/) e o [template de Maxi Ferreira](https://github.com/Charca/astro-blog-template#readme)
+Esse projeto hospeda o código referente ao meu [blog](https://thlmenezes.github.io), utilizando [Astro](https://astro.build/), o [template de Maxi Ferreira](https://github.com/Charca/astro-blog-template#readme) e cria miniaturas dos links para cada página usando [astro-social-images](https://github.com/Princesseuh/astro-social-images#readme)
 
 ## FAQ
 
