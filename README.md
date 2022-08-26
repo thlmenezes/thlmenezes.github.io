@@ -1,64 +1,32 @@
-# [Astro](https://astro.build) Blog Template
+# Blog Pessoal
 
-[![Screenshot](screenshot.png)](https://astro-blog-template.netlify.app/)
+Esse projeto hospeda o código referente ao meu [blog](https://thlmenezes.github.io), utilizando [Astro](https://astro.build/) e o [template de Maxi Ferreira](https://github.com/Charca/astro-blog-template#readme)
 
-## 👉 Check out the ✨ [Live Demo](https://astro-blog-template.netlify.app/) ✨
+## FAQ
 
-## 👩‍🚀 Getting Started
+### Novos Posts
 
-### Locally
-
-```
-npm init astro -- --template Charca/astro-blog-template
-```
-
-### On StackBlitz
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/charca/astro-blog-template)
-
-## ✨ Features:
-
-- ✅ Astro 1.0
-- ✅ Dark Mode
-- ✅ Full Markdown support
-- ✅ SEO-friendly setup with canonical URLs and OpenGraph data
-- ✅ RSS 2.0 generation
-- ✅ Sitemap.xml generation
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   ├── robots.txt
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Tour.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```plaintext
+/src/data/blog-posts
+├── post1.md
+└── post2.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Configuração VSCode para revisão de textos
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+  - [Dicionário pt-BR](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-portuguese-brazilian)
+- [Markdown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [LanguageTool Linter](https://marketplace.visualstudio.com/items?itemName=davidlday.languagetool-linter)
+  - requer API rodando, script docker disponível em [lang-tool-server](./scripts/lang-tool-server)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🧞 Comandos
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
+Todos os comandos são executados da raiz do projeto, utilizando um terminal:
 
 | Command           | Action                                       |
 | :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3030`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
-
-## 👀 Want to learn more?
-
-Feel free to check [Astro's documentation](https://github.com/withastro/astro) or jump into Astro's [Discord server](https://astro.build/chat).
+| `npm install`     | Instalar dependências                        |
+| `npm run dev`     | Inicia servidor local dev em `localhost:3030`|
+| `npm run build`   | Build do site de produção em `./dist/`       |
+| `npm run preview` | Preview da build localmente, antes do deploy |
