@@ -1,11 +1,10 @@
 import { defineConfig } from 'astro/config'
-import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://thlmenezes.github.io',
-  integrations: [mdx(), svelte()],
+  integrations: [mdx()],
   markdown: {
     shikiConfig: {
       theme: 'nord',
