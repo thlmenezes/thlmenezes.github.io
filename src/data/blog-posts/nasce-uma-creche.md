@@ -1,7 +1,7 @@
 ---
 title: O nascimento da Creche
 publishDate: 20 Ago 2022
-description: O que é? Porque o nome? Para quê?
+description: O que é? Por que o nome? Para quê?
 ---
 
 ## Era uma noite escura e tempestuosa
@@ -10,7 +10,7 @@ Em março de 2020, fui alocado na equipe de um aplicativo React Native, escrito 
 
 <div class="tenor-gif-embed" data-postid="17362021" data-share-method="host" data-aspect-ratio="1.92771" data-width="100%"><a href="https://tenor.com/view/jurassic-park-iii-nobody-move-a-muscle-alan-grant-dont-move-a-muscle-nobody-move-gif-17362021">Jurassic Park Iii Nobody Move A Muscle GIF</a>from <a href="https://tenor.com/search/jurassic+park+iii-gifs">Jurassic Park Iii GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-Em outubro de 2020, me tornei o gerente desse mesmo projeto,  mesmo com pouca ou nenhuma experiência prévia em gestão de equipes, comunicação com cliente e planejamento de metas para projetos de software, assumi a gestão com a saída de minha antecessora. A extensão das responsabilidades do cargo ao qual me refiro como gerente é tópico para discussão outro dia, o foco de meu artigo hoje é descrever os desafios que surgiram durante essa trajetória e ferramentas que me auxiliaram no processo, começando pela substituição quase completa da minha equipe de balanceado nível de experiência por recém-introduzidos ao mundo do desenvolvimento profissional.
+Em outubro de 2020, me tornei o gerente desse mesmo projeto, mesmo com pouca ou nenhuma experiência prévia em gerência de equipes, comunicação com cliente e planejamento de metas para projetos de software, assumi a gerência com a saída de minha antecessora. A extensão das responsabilidades do cargo ao qual me refiro como gerente é tópico para discussão outro dia, o foco de meu artigo hoje é descrever os desafios que surgiram durante essa trajetória e ferramentas que me auxiliaram no processo, começando pela substituição quase completa da minha equipe de balanceado nível de experiência por recém-introduzidos ao mundo do desenvolvimento profissional.
 
 ## E agora?
 
@@ -21,7 +21,7 @@ Passado o estado de negação inicial, o primeiro desafio era: como preservar a 
 Mas rapidamente essa postura se mostrou ineficiente, os principais problemas foram:
 
 - Longas horas: passei a pessoalmente verificar 100% do código submetido à produção, logo minha carga de trabalho foi multiplicada pelo número de desenvolvedores da equipe;
-- Corrida contra o tempo: caso demorasse a dar feedbacks em uma tarefa relevante para a entrega da semana, possivelmente eu me tornaria responsável por completar as tarefas que separei para mim e as que não conseguiria receber respostas a tempo dos desenvolvedores;
+- Corrida contra o tempo: caso demorasse a revisar uma tarefa relevante para a entrega da semana, possivelmente eu me tornaria responsável por completar as minhas tarefas e as que não conseguiria receber respostas a tempo dos desenvolvedores;
 - Documentação inconsistente: cada qual fazia commits e documentava código à sua maneira, escrevendo códigos autorais e, aumentava o trabalho de revisão por ter que "entrar na mente" de quem escreveu.
 
 O fluxo de trabalho podia ser descrito nos passos:
@@ -35,7 +35,7 @@ O fluxo de trabalho podia ser descrito nos passos:
 6. Desenvolvedor requisita revisão do gerente.
 ```
 
-Esse fluxo de trabalho acabou criando um ambiente em que havia grande dependência dos meus feedbacks, às vezes com códigos que funcionavam parcialmente, famoso "conserta um lado e quebra o outro". Então, busquei formas de aumentar os feedbacks, especialmente das partes "automatizáveis", diminuindo o tempo entre a escrita do código "funcionando" e receber uma resposta de revisão, utilizando automações e definindo padrões a serem seguidos, porque quanto menor esse tempo, mais forte a associação de causa e consequência, se formos entrar no campo de estudos de metodologias de ensino.
+Esse fluxo de trabalho acabou criando um ambiente em que havia grande dependência das minhas revisões, às vezes com códigos que funcionavam parcialmente, famoso "conserta um lado e quebra o outro". Então, busquei formas de aumentar o número de revisões que o código receberia, especialmente das partes "automatizáveis", diminuindo o tempo entre a escrita do código "funcionando" e receber uma resposta de revisão, utilizando automações e definindo padrões a serem seguidos, porque quanto menor esse tempo, mais forte a associação de causa e consequência, se formos entrar no campo de estudos de metodologias de ensino.
 
 ## Filtrando Fiapos
 
@@ -68,7 +68,7 @@ O Prettier é um formatador de código opinado, suas configurações padrões j�
 
 Mas, apesar de padronizado, ainda havia uma forte dependência na capacidade de os desenvolvedores e eu detectarmos erros que impediriam a execução do código. Descobri haver a necessidade de um [*linter*](https://en.wikipedia.org/wiki/Lint_(software)), como diz a própria documentação do Prettier, em tradução livre, "use o Prettier para formatação e *linters* para capturar *bugs*!".
 
-> O termo *lint* veio da indústria téxtil, se referindo aos pequenos pedaços de tecido que saem nas lavagens e secagens da roupa, a ideia é que os *linters* atuassem para o mundo de *software* como um filtro de *bugs*, semelhante às máquinas filtrando fiapos.
+> O termo *lint* veio da indústria têxtil, se referindo aos pequenos pedaços de tecido que saem nas lavagens e secagens da roupa, a ideia é que os *linters* atuassem para o mundo de *software* como um filtro de *bugs*, semelhante às máquinas filtrando fiapos.
 
 ### [ESLint](https://eslint.org/)
 
@@ -107,7 +107,7 @@ Através de análise estática do código é possível detectar erros que impedi
 
 </details>
 
-Com isso, havia se estabelecido a primeira camada de feedbacks automatizados, mas só seriam eficazes caso os desenvolvedores tivessem a iniciativa de configurar seus ambientes com as extensões sugeridas ou tivessem a disciplina de executar as ferramentas manualmente; confiante na preguiça inerente ao engenheiro de software, resolvi ir mais fundo.
+Com isso, havia se estabelecido a primeira camada de revisão automatizada, mas só seria eficaz caso os desenvolvedores tivessem a iniciativa de configurar seus ambientes com as extensões sugeridas ou tivessem a disciplina de executar as ferramentas manualmente; confiante na preguiça inerente ao engenheiro de software, resolvi ir mais fundo.
 
 ## Todos usamos Git
 
@@ -158,8 +158,8 @@ Contudo, para uma adesão incremental de padrões de projeto, o ideal é validar
 
 Uma ferramenta muito poderosa, permitindo não só a seleção dos arquivos modificados no commit, como:
 
-- executar validações diferentes dependendo da extensão ou nome do arquivo, utilizando expressões regulares;
-- validação de arquivos parcialmente em stage, ou seja, quando existem mais modificações no arquivo que não foram selecionadas no commit elas são empilhadas, as validações são executadas e as modificações são recuperadas automaticamente.
+- Executar validações diferentes dependendo da extensão ou nome do arquivo, utilizando expressões regulares;
+- Validação de arquivos parcialmente em stage, ou seja, quando existem mais modificações no arquivo que não foram selecionadas no commit elas são empilhadas, as validações são executadas e as modificações são recuperadas automaticamente.
 
 <details><summary>Configuração</summary>
 
@@ -182,9 +182,9 @@ Agora temos garantia de um histórico com código bem formatado, mas o históric
 
 ## Padrões de Commit
 
-Assim que busquei o assunto, encontrei o [guia de contribuição do Angular](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit), apesar do foco em geração automatizada de registro das mudanças entre versões, vi que ali havia um formato que poderíamos experimentar seguir. Mas, como sabemos da confiável e constante preguiça inerente ao engenheiro de software, especialmente em situações de pressão, eu sabia que as mensagens de commit poderiam ser alvo do maior número de desculpas: "é urgente...", "depois arrumo", "foram mudanças triviais".
+Assim que busquei o assunto, encontrei o [guia de contribuição do Angular](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit), apesar do foco em geração automatizada de registro das mudanças entre versões, vi que ali havia um formato que poderíamos experimentar seguir. Mas, como sabemos da confiável e constante preguiça inerente ao engenheiro de software, especialmente em situações de pressão, eu sabia que as mensagens de commit poderiam ser alvo do maior número de desculpas: "é urgente", "depois arrumo", "foram mudanças triviais".
 
-> Quantas vezes vc já revisou mensagens de commits antigas, especialmente depois que foram enviadas à produção?
+> Quantas vezes você já revisou mensagens de commits antigas, especialmente depois que foram enviadas à produção?
 
 Por essas e outras, veio a regra imposta que gerou o maior atrito em adaptação da equipe vigente.
 
@@ -196,15 +196,15 @@ Configurado para os padrões de commits estabelecidos pela equipe do Angular, e 
 
 ### [Commitzen](https://commitizen-tools.github.io/commitizen/)
 
-A salvação do onboarding, aqui escolhi não por o git hook por questões de compatibilidade com a interface de commits do VSCode, editor usado pela maioria da equipe; com ambas ferramentas, era possível que os mais inexperientes no formato pudessem ser guiados a escrever uma mensagem que passasse na validação, enquanto os ousados pudessem escrever com velocidade e ser avisados em casos de erros.
+A salvação do onboarding, aqui escolhi não por o git hook por questões de compatibilidade com a extensão do controle de código-fonte do VSCode, editor usado pela maioria da equipe; com ambas ferramentas, era possível que os mais inexperientes no formato pudessem ser guiados a escrever uma mensagem que passasse na validação, enquanto os ousados pudessem escrever com velocidade e ser avisados em casos de erros.
 
 > Recentemente descobri o [cz-git](https://cz-git.qbb.sh/), que propõe a unificação da configuração de ambas ferramentas, evitando a duplicação de regras de commits.
 
 Tudo parece bem até o momento correto? Mas ainda existe uma brecha ou caso a ser considerado: e aqueles que por quaisquer motivos desabilitem essas verificações no ambiente local? O ideal seria evitar que o gerente que baixar a branch remota para validar localmente o código e commits. Felizmente, havia uma solução simples o suficiente.
 
-## Todos usamos Github 🤷
+## Todos usamos GitHub 🤷
 
-Estávamos todos usando o GitHub como plataforma, após uma transição do Gitlab dentro da empresa, e a sintaxe dos [fluxos de trabalho do GitHub](https://docs.github.com/pt/actions/using-workflows/workflow-syntax-for-github-actions) era ainda mais simples que a do Gitlab; também já haviam todas as dependências e comandos para validação prontos em ambiente local.
+Estávamos todos usando o GitHub como plataforma, após uma transição do Gitlab na empresa, e a sintaxe dos [fluxos de trabalho do GitHub](https://docs.github.com/pt/actions/using-workflows/workflow-syntax-for-github-actions) era ainda mais simples que a do Gitlab; também já haviam todas as dependências e comandos de validação prontos em ambiente local.
 
 A transição foi, além de natural, extremamente rápida. Adicionei 2 fluxos de trabalho que passaram a virar pré requisito para meu review
 
@@ -212,7 +212,7 @@ A transição foi, além de natural, extremamente rápida. Adicionei 2 fluxos de
 
 ### Deploy? Isso é novidade
 
-Por usarmos Expo, o lançamento de atualizações era feito com um comando que demorava em torno de 8 minutos para ser concluído e a atualização estar disponível para os clientes. Quando vi os fluxos de trabalho do GitHub, já visualizei o tempo que eu ganharia colocando deploys automáticos toda vez que o código da `main` era atualizado.
+Por usarmos Expo, o lançamento de atualizações era feito com um comando que demorava em torno de 8 minutos para ser concluído e a atualização estar disponível para os clientes. Quando tive meu primeiro contato com os fluxos de trabalho do GitHub, já visualizei o tempo que eu ganharia colocando deploys automáticos toda vez que o código da `main` era atualizado.
 
 ## O que mudou até agora?
 
@@ -234,17 +234,17 @@ Por usarmos Expo, o lançamento de atualizações era feito com um comando que d
 
 Diferenças sutis, mas tão significativas que trouxeram um aumento de produtividade significativo para os desenvolvedores e diminuíram a carga de trabalho inicial de revisão, ou seja, dá pro gasto por um tempinho.
 
-## Mas porque creche?
+## Por que creche?
 
 O nome veio da ideia de criar um ambiente para que os recém-introduzidos ao mundo da programação profissional pudessem se desenvolver de forma segura, um ambiente que incentivasse experimentação; e, quando fossem ganhando mais experiência, se tornasse uma rede de segurança, garantindo que o padrão do produto sendo construído não quebraria a barreira de qualidade mínima esperada.
 
-> Acha que faz sentido, dado o que viu até agora?
+> Faz sentido, dado o que viu até agora?
 
 ## FIM?
 
 <div class="tenor-gif-embed" data-postid="8154669" data-share-method="host" data-aspect-ratio="2.43" data-width="100%"><a href="https://tenor.com/view/deadpool-go-home-gif-8154669">Deadpool Go Home GIF</a>from <a href="https://tenor.com/search/deadpool-gifs">Deadpool GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-O panorama do projeto antes dessas ferramentas podia ser descrito como nebuloso: não havia certeza além do que era testado manualmente e a qualidade era garantida pela experiência dos envolvidos. Com o advento de ferramentas e processos, passou a existir uma documentação, garantias da evolução e qualidade do código escrito, criando alguns traumas e feedbacks engraçados no caminho, mas nenhuma história que não combinasse com o nome creche.
+O panorama do projeto antes dessas ferramentas podia ser descrito como nebuloso: não havia certeza além do que era testado manualmente e a qualidade era garantida pela experiência dos envolvidos. Com o advento de ferramentas e processos, passou a existir uma documentação, garantias da evolução e qualidade do código escrito, criando alguns traumas e experiências engraçadas no caminho, mas nenhuma história que não combinasse com o nome creche.
 
 Ainda houveram mais dores e melhorias feitas gradualmente a esse fluxo de trabalho, mas espero com esse artigo ter mostrado que não é necessário almejar a implantação da creche 3.0 para se ter um impacto positivo no seu dia a dia.
 
