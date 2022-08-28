@@ -210,7 +210,7 @@ Tudo parece bem até o momento correto? Mas ainda existe uma brecha ou caso a se
 
 Estávamos todos usando o GitHub como plataforma, após uma transição do Gitlab na empresa, e a sintaxe dos [fluxos de trabalho do GitHub](https://docs.github.com/pt/actions/using-workflows/workflow-syntax-for-github-actions) era ainda mais simples que a do Gitlab; também já haviam todas as dependências e comandos de validação prontos em ambiente local.
 
-A transição foi, além de natural, extremamente rápida. Adicionei 2 fluxos de trabalho que passaram a virar pré requisito para meu review
+A transição foi, além de natural, extremamente rápida. Adicionei 2 fluxos de trabalho que passaram a virar pré requisito para minha revisão.
 
 > Se não passar no Lint e Deploy, ainda não está pronto para revisão
 
