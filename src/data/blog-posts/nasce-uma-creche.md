@@ -4,6 +4,10 @@ publishDate: 20 Ago 2022
 description: O que é? Por que o nome? Para quê?
 ---
 
+## Motivação do artigo
+
+Recentemente finalizei uma versão estável de um compilado de ferramentas selecionadas ao longo de quase 2 anos testando com equipes de desenvolvimento, no formato de um [modelo de repositório](https://github.com/TMTecnologia/turborepo-tmtecnologia), mas ao compartilhar essa experiência com meus pares, apesar de acharem interessante e compartilharem da visão, viram como algo distante da realidade de seus projetos atuais, por conta do número de ferramentas ali presentes; então resolvi documentar o processo desde o começo, compartilhando os problemas que busquei solucionar com cada ferramenta e etapa do processo.
+
 ## Era uma noite escura e tempestuosa
 
 Em março de 2020, fui alocado na equipe de um aplicativo React Native, escrito em Javascript e baseado em uma API já construída; o aplicativo já havia sido iniciado, mas depois de algumas atualizações e excelente trabalho de meu colega, virou um projeto [Expo](https://expo.dev/) atualizado com duas pastas de código legado, escritas utilizando classes e que ninguém queria mexer segundo o princípio “está funcionando, ninguém toca se não explode”.
