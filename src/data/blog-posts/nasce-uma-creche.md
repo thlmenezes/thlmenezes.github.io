@@ -4,7 +4,7 @@ publishDate: 20 Ago 2022
 description: O que é? Porque o nome? Para quê?
 ---
 
-## Era uma noite escura e tempestuosa...
+## Era uma noite escura e tempestuosa
 
 Em março de 2020, fui alocado na equipe de um aplicativo React Native, escrito em Javascript e baseado em uma API já construída; o aplicativo já havia sido iniciado, mas depois de algumas atualizações e excelente trabalho de meu colega, virou um projeto [Expo](https://expo.dev/) atualizado com duas pastas de código legado, escritas utilizando classes e que ninguém queria mexer segundo o princípio “está funcionando, ninguém toca se não explode”.
 
@@ -104,11 +104,12 @@ Através de análise estática do código é possível detectar erros que impedi
   },
 }
 ```
+
 </details>
 
 Com isso, havia se estabelecido a primeira camada de feedbacks automatizados, mas só seriam eficazes caso os desenvolvedores tivessem a iniciativa de configurar seus ambientes com as extensões sugeridas ou tivessem a disciplina de executar as ferramentas manualmente; confiante na preguiça inerente ao engenheiro de software, resolvi ir mais fundo.
 
-## Todos usamos Git !!
+## Todos usamos Git
 
 Mesmo os mais indisciplinados, eventualmente haviam de fazer um commit, push e pull request para submeter suas alterações, então resolvi fazer uso desses eventos como gatilhos das automações, <s>forçando</s> induzindo a aplicação dos padrões estabelecidos.
 
@@ -125,8 +126,8 @@ O husky chegou para ser o cão de guarda, farejador de bugs, impedindo que os de
 Scripts acionados quando ações importantes acontecem.
 
 ```bash
-$ git commit
-$ git push
+git commit
+git push
 ```
 
 </details>
@@ -148,6 +149,7 @@ core.hooksPath
     diretório, ex. /etc/git/hooks/pre-receive ao invés de
     $GIT_DIR/hooks/pre-receive
 ```
+
 </details>
 
 Contudo, para uma adesão incremental de padrões de projeto, o ideal é validar e apresentar erros dos arquivos que estão sendo modificados no commit.
@@ -171,6 +173,7 @@ Uma ferramenta muito poderosa, permitindo não só a seleção dos arquivos modi
 ```bash
 npx husky add .husky/pre-commit 'npx lint-staged'
 ```
+
 </details>
 
 Agora temos garantia de um histórico com código bem formatado, mas o histórico é legível? Observar o log do git seria simples e traria informações úteis? Essa é a próxima pergunta que busquei respostas.
