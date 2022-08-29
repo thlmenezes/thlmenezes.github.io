@@ -11,7 +11,7 @@ export default defineConfig({
     shikiConfig: {
       theme: 'nord',
     },
-    remarkPlugins: ['remark-gfm', 'remark-smartypants'],
+    remarkPlugins: [remarkReadingTime, 'remark-gfm', 'remark-smartypants'],
     rehypePlugins: [
       [
         'rehype-external-links',
@@ -19,7 +19,6 @@ export default defineConfig({
           target: '_blank',
         },
       ],
-      remarkReadingTime
     ],
   },
 })
