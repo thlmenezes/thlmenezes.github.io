@@ -33,13 +33,13 @@ Como já disse um [grande sábio de pequeno cérebro](https://grugbrain.dev/#gru
 
 > Complexidade muito, muito ruim
 
-E com razão, a complexidade de código afeta, principalmente, a legibilidade do código. Quanto mais difícil de ser lido, menos o código será auditado, virando um legado inquestionável, e quando nesse estado, todos acreditam que funciona.
+E com razão: a complexidade de código afeta, principalmente, a legibilidade; quanto mais difícil de ser lido, menos o código será auditado, evoluindo para um legado inquestionável, e quando nesse estado surge a hipótese mais assustadora que qualquer desenvolvedor poderia assumir, supõe-se que funciona.
 
 Código foi feito para ser lido, relido e testado, portanto, utilizei minha experiência de amor e ódio com [Rubocop](https://rubocop.org/) como ponto de partida para responder à pergunta.
 
 > Quais eram as validações que mais impactaram a complexidade do meu código?
 
-![Homem negro sorrindo dirigindo carro e segurando botão de assento ejetável, cena do filme Velozes e Furiosos 1](/assets/blog/saga-creche-continua/fast-and-furious-ejectable-seat.jpg)
+![Homem negro careca sorrindo enquanto dirige um carro e segura um botão de assento ejetável, cena do filme Velozes e Furiosos 1](/assets/blog/saga-creche-continua/fast-and-furious-ejectable-seat.jpg)
 
 É chegado o momento de compartilhar as dores dessas validações com a nova geração, ao clique de um botão.
 
@@ -48,13 +48,137 @@ Código foi feito para ser lido, relido e testado, portanto, utilizei minha expe
 |[Metrics/CyclomaticComplexity](https://docs.rubocop.org/rubocop/1.34/cops_metrics.html#metricscyclomaticcomplexity) | [Complexity Rule ESLint](https://eslint.org/docs/latest/rules/complexity)|
 |[Metrics/AbcSize](https://docs.rubocop.org/rubocop/1.34/cops_metrics.html#metricsabcsize) | [eslint-plugin-abcsize](https://www.npmjs.com/package/eslint-plugin-abcsize) |
 
+Com poucas modificações a configuração já existente, acabamos de estender as validações de formatação e bugs para validar também o quão complexo o código escrito de fato é. Mas, apesar de menos complexidade facilitar a compreensão, muitas vezes é tão importante quanto a simplicidade em utilizar sem obrigar a compreender a implementação; e assim entramos no território em que documentação se torna um fator determinante na velocidade.
+
 ## [Documentação](#documentação)
+
+> Por que documentamos? Porque queremos deixar um legado não odiável no dia seguinte!
+
+Os objetivos que a documentação de um código deve perseguir podem ser divididos em 3 grupos:
+
+1. Intenção: Por qual motivo esse método foi criado? Qual problema ele resolve?
+2. Interface: Como interagir com esse método? Quais são os possíveis argumentos, retornos, exceções que podem surgir desse código? Exemplos?
+3. Integração: Qual versão foi adicionado? Devo continuar usando (deprecado)?
 
 <div class="tenor-gif-embed" data-postid="7342750" data-share-method="host" data-aspect-ratio="1.77333" data-width="100%"><a href="https://tenor.com/view/typing-fast-jimcarrey-bruce-almighty-emails-gif-7342750">Typing Fast GIF</a>from <a href="https://tenor.com/search/typing-gifs">Typing GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
+Com nossas metas em mente, podemos começar a trabalhar.
+
 ### [JSDoc](#jsdoc)
 
-### [Typescript](#typescript)
+JSDoc (1999-hoje) estabelece um formato de documentação utilizado até hoje na comunidade Javascript. Com isso não precisamos criar um formato novo de fazer a documentação e ganhamos acesso a ferramentas que podem percorrer nosso código e exportar esses comentários em formatos `html`, `pdf` e outros.
+
+<details>
+
+<summary>Modelo de comentário</summary>
+
+```js
+/**
+ * Intenção em voz imperativa
+ * 
+ * Descrição estendida
+ * 
+ * @example <caption>Legenda</caption>
+ * method(args); // => value
+ *
+ * @param {JStype} name - description
+ * 
+ * @returns {JStype} description
+ */
+```
+
+</details>
+
+<details>
+
+<summary>Principais Funcionalidades</summary>
+
+| JSDoc | Significado |
+| --- | --- |
+| [@throws](https://jsdoc.app/tags-throws.html) | Exceções que podem surgir |
+| [@example](https://jsdoc.app/tags-example.html) | Exemplo de uso |
+| [@param](https://jsdoc.app/tags-param.html) | Argumentos |
+| [@returns](https://jsdoc.app/tags-returns.html) | Retorno |
+| [@deprecated](https://jsdoc.app/tags-deprecated.html) | Aviso de funcionalidade deprecada |
+
+Encontre outras funcionalidades em [JSDoc](https://jsdoc.app/index.html)
+
+</details>
+
+<details>
+
+<summary>Leitura Recomendada</summary>
+
+Lendo o conteúdo das 3 páginas trará uma visão inicial bem completa do que é possível documentar e como.
+
+1. [Primeiros Passos](https://jsdoc.app/about-getting-started.html)
+1. [@param/@arg/@argument](https://jsdoc.app/tags-param.html)
+1. [@type](https://jsdoc.app/tags-type.html)
+
+</details>
+
+Por conta de sua difusão, alguns editores de texto apresentam sugestões baseados nos tipos documentados. Vamos analisar o código abaixo:
+
+```js
+/**
+ * Cria `gitmojis.json` para uso em commitlint
+ *
+ * @param {Object} json - O conteúdo json baixado.
+ * @param {Object[]} json.gitmojis - O array de conteúdo listado em gitmoji.dev
+ * @param {string} json.gitmojis[].emoji - A representação elegante do emoji
+ * @param {string} json.gitmojis[].code - O nome do emoji
+ * @param {string} json.gitmojis[].description - O significado dentro do gitmoji
+ */
+```
+
+Acima foi descrito uma função qualquer que recebe um argumento `json` segundo o formato.
+
+![Captura de tela mostrando janela flutuante com documentação da função](/assets/blog/saga-creche-continua/jsdoc-function.png)
+
+E durante a escrita do código ele reconhece a estrutura, apresentando sugestões.
+
+![Captura de tela mostrando janela flutuante com sugestões de código de acordo com a estrutura do argumento `json` definida na documentação](/assets/blog/saga-creche-continua/jsdoc-autocomplete.png)
+
+Contudo, se formos nos inclinar mais para o lado da tipagem do JSDoc, existe uma alternativa mais recente e com uma experiência de desenvolvimento mais simples quando o assunto é descrever tipagem de dados.
+
+### [TypeScript](#typescript)
+
+TypeScript (TS) é uma linguagem fortemente tipada construída com base no JavaScript (JS), tornando a transição da base de código extremamente natural.
+
+Todo código JS faz parte do TS, portanto, em tese se modificarmos todas as extensões de arquivo do projeto tudo deveria funcionar; mas pensando na ideia de adoção incremental podemos ir trocando para os arquivos para TS conforme as tarefas são afetando o código-fonte.
+
+Então, a combinação dos dois fica da seguinte forma
+
+```ts
+/**
+ * Intenção em voz imperativa
+ * 
+ * Descrição estendida
+ * 
+ * @example <caption>Legenda</caption>
+ * // => value
+ * method(args);
+ * 
+ * @arg 
+ * @deprecated
+ */
+function soma(esquerda: number, direita: number){
+  return esquerda+direita;
+}
+```
+
+Vamos analisar a documentação resultante do código acima
+
+![Captura de tela mostrando janela flutuante com documentação da função soma](/assets/blog/saga-creche-continua/jsdoc-plus-ts.png)
+
+Note que nós não escrevemos o tipo do retorno da função, ele foi inferido baseado no código e no tipo dos argumentos. Então, o resumo é, utilize cada ferramenta para sua especialidade:
+
+| vs | Intenção | Interface* | Integração |
+| :---: | :---: | :---: | :---: |
+| JSDoc | X | | X |
+| TypeScript | | X | |
+
+*o TypeScript consegue expressar 95% da categoria Interface, contudo pode ser complementado com o JSDoc (ex.: exceções e exemplos)
 
 ## [Testes](#testes)
 
