@@ -180,13 +180,33 @@ Note que nós não escrevemos o tipo do retorno da função, ele foi inferido ba
 
 *o TypeScript consegue expressar 95% da categoria Interface, contudo pode ser complementado com o JSDoc (ex.: exceções e exemplos)
 
+Bastante teoria, mas a prática também é importante, alguns dizem que até mais importante, encontramos até mesmo frases emblemáticas como, em tradução livre:
+
+> "Código nunca mente, comentários às vezes sim."<br/>
+> — Ron Jeffries
+
+Então vemos aqui que precisamos ir mais longe nas validações, além do estático, precisamos adicionar uma etapa dinâmica.
+
 ## [Testes](#testes)
+
+Aproveitando a citação de Ron Jeffries, ele é um dos 3 fundadores da metodologia de desenvolvimento de software Programação Extrema (XP, do inglês [_Extreme Programming_](http://www.extremeprogramming.org/)) um processo do desenvolvimento ágil, assunto digno de aprofundamento em artigo separado, mas desse tema irei aproveitar o gancho das opiniões sobre testes descritas no método.
+
+<http://www.extremeprogramming.org/rules.html>
 
 ### [Unidade](#unidade)
 
-O risco de simular resultados (*mocks*)
+Code the unit test first. (TDD)
+<http://www.extremeprogramming.org/rules/testfirst.html>
+
+All code must have unit tests.
+<http://www.extremeprogramming.org/rules/unittests.html>
+
+O risco de simular resultados (_mocks_)
 
 ### [Ponta a Ponta](#ponta-a-ponta)
+
+> ["Acceptance tests are run often and the score is published"](http://www.extremeprogramming.org/rules/functionaltests.html)<br/>
+> --- The Rules of Extreme Programming: Testing
 
 1. Cypress
 2. Playwright
@@ -194,5 +214,28 @@ O risco de simular resultados (*mocks*)
 
 ## [Quebrando lote de atualizações](#quebrando-lote-de-atualizações)
 
+> ["Make frequent small releases"](http://www.extremeprogramming.org/rules/releaseoften.html)<br/>
+> --- The Rules of Extreme Programming: Planning
+
+e
+
+> ["Integrate Often"](http://www.extremeprogramming.org/rules/integrateoften.html)<br/>
+> --- The Rules of Extreme Programming: Coding
+
+e
+
+> ["Collective Ownership"](http://www.extremeprogramming.org/rules/collective.html)<br/>
+> --- The Rules of Extreme Programming: Coding
+
 1. Trunk Based Workflow
 2. Changelogs automatizados
+
+## Conclusão
+
+> ["Code must be formatted to agreed coding standards [...] Code that looks the same encourages collective ownership"](http://www.extremeprogramming.org/rules/standards.html)<br/>
+> --- The Rules of Extreme Programming: Coding
+
+e
+
+> ["Move people around to avoid serious knowledge loss and coding bottle necks"](http://www.extremeprogramming.org/rules/movepeople.html)<br/>
+> --- The Rules of Extreme Programming: Managing
