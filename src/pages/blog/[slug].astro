@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Bio from "../../components/Bio.astro";
-import getPostData from "../../utils/getPostData";
+import { getSlugFromFile } from "../../utils/getPostData";
 import { formatPostTags } from "../../utils/formatPostTags";
 
 export async function getStaticPaths() {
@@ -15,7 +15,8 @@ export async function getStaticPaths() {
 const { Content, frontmatter } = Astro.props.post;
 const { title, description, publishDate, tags } = frontmatter;
 const tagList = formatPostTags(tags);
-const { slug, readingTime } = getPostData(Astro.props.post);
+const { readingTime } = Astro.props.post.frontmatter;
+const slug = getSlugFromFile(Astro.props.post.file);
 const permalink = `${Astro.site?.href}${slug}`;
 ---
 
