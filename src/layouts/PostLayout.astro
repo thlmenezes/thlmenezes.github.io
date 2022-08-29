@@ -1,0 +1,76 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Bio from "../components/Bio.astro";
+import { formatPostTags } from "../utils/formatPostTags";
+import { getSlugFromFile } from "../utils/getPostData";
+
+interface Frontmatter {
+  title: string;
+  publishDate: string;
+  description: string;
+  permalink: string;
+  readingTime: string;
+  tags?: string;
+}
+
+export interface Props {
+  post: {
+    file: string;
+    frontmatter: Frontmatter;
+    Content: any;
+  };
+}
+
+const { title, description, publishDate, tags, readingTime } =
+  Astro.props.frontmatter || Astro.props;
+const tagList = formatPostTags(tags);
+const permalink = `${Astro.site?.href}${getSlugFromFile(Astro.url.pathname)}`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  tags={tags ?? ""}
+  current="blog"
+>
+  <header>
+    <p>{publishDate} ~ {readingTime}</p>
+    <h1>{title}</h1>
+    <p class="lower">{tagList}</p>
+    <hr />
+  </header>
+  <div class="container">
+    <article class="content">
+      <slot />
+    </article>
+    <hr />
+    <Bio />
+  </div>
+</BaseLayout>
+
+<style>
+  header {
+    text-align: center;
+  }
+
+  header h1 {
+    margin-bottom: 0.7em;
+  }
+
+  .lower {
+    text-transform: lowercase;
+  }
+
+  header p {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+  }
+
+  header hr {
+    min-width: 100px;
+    width: 30%;
+  }
+</style>

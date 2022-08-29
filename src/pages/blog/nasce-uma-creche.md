@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/PostLayout.astro
 title: O nascimento da Creche
 publishDate: 20 Ago 2022
 description: O que é? Por que o nome? Para quê?
