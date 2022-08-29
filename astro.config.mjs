@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://thlmenezes.github.io',
   integrations: [mdx()],
   markdown: {
+    drafts: true,
     shikiConfig: {
       theme: 'nord',
     },
