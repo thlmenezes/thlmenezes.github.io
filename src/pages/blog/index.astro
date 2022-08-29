@@ -31,10 +31,17 @@ allPosts = allPosts
             {index !== 0 && <hr />}
             <div class="post-item">
               <h2>
-                <a href={href}>{post.frontmatter.title}</a>
+                <a href={href}>
+                  {post.frontmatter.draft ? "🚧" : ""}
+                  {post.frontmatter.title}
+                  {post.frontmatter.draft ? "🚧" : ""}
+                </a>
               </h2>
               <p>{post.frontmatter.description}</p>
               <div class="post-item-footer">
+                {post.frontmatter.draft
+                  ? "Em breve, lançamento estimado para"
+                  : ""}
                 <span class="post-item-date">
                   — {post.frontmatter.publishDate}
                 </span>

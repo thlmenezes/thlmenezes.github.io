@@ -4,6 +4,7 @@ title: A saga da Creche continua
 publishDate: 02 Set 2022
 description: O que aconteceu depois do nascimento da creche?
 tags: javascript, typescript, padrões de projeto
+draft: true
 ---
 
 
