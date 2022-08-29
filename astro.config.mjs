@@ -11,6 +11,7 @@ export default defineConfig({
     shikiConfig: {
       theme: 'nord',
     },
+    remarkPlugins: ['remark-gfm', 'remark-smartypants'],
     rehypePlugins: [
       [
         'rehype-external-links',
