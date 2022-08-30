@@ -42,11 +42,63 @@ const permalink = `${Astro.site?.href}${getSlugFromFile(Astro.url.pathname)}`;
   </header>
   <div class="container">
     <article class="content">
+      <div
+        id="ra-player"
+        data-skin="https://assets.readaloudwidget.com/embed/skins/default"
+      >
+        <div
+          class="ra-button"
+          style=""
+          onclick="(function (e, n) {
+            var s = 'https://assets.readaloudwidget.com/embed/';
+            /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+              ((e.src = s + 'sound/silence.mp3'),
+              e.play(),
+              'undefined' != typeof speechSynthesis &&
+                speechSynthesis.speak(new SpeechSynthesisUtterance(' ')));
+            var t = document.createElement('script');
+            (t.onload = function () {
+              readAloudInit(e, n);
+            }),
+              (t.src = s + 'js/readaloud.min.js'),
+              document.head.appendChild(t);
+          })(document.getElementById('ra-audio'), document.getElementById('ra-player'))"
+        >
+          <img
+            src="https://assets.readaloudwidget.com/embed/skins/default/play-icon.png"
+          />
+          <p>Clique para ouvir esse artigo</p>
+        </div>
+      </div>
+      <audio
+        id="ra-audio"
+        data-lang="pt-BR"
+        data-voice="free"
+        data-key="e09bdaf2c4dd2999cf1b2eda32c78cc0"></audio>
       <slot />
     </article>
     <hr />
     <Bio />
   </div>
+  <style>
+    .ra-button {
+      padding: 0.3em 0.9em;
+      border-radius: 0.25em;
+      background: linear-gradient(var(--text-main), var(--text-secondary));
+      box-shadow: 0 1px 0.2em gray;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .ra-button img {
+      height: 1em;
+      margin: 0 0.5em 0 0;
+    }
+    .ra-button > p {
+      color: var(--background-body);
+      margin: 0;
+    }
+  </style>
 </BaseLayout>
 
 <style>
