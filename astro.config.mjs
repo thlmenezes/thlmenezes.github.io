@@ -4,7 +4,7 @@ import { remarkReadingTime } from './remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blog.thlm.dev',
+  site: 'https://thlm.dev',
   integrations: [mdx()],
   markdown: {
     drafts: true,
